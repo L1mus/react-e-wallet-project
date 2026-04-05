@@ -5,11 +5,16 @@ const KEYS = {
 
 export const getData = () => {
   const data = localStorage.getItem(KEYS.database);
-  return data ? JSON.parse(data) : null;
+  return data ? JSON.parse(data) : { users: [], reviews: [] };
 };
 
 export const saveData = (data) => {
   localStorage.setItem(KEYS.database, JSON.stringify(data));
+};
+
+export const isEmailExists = (email) => {
+  const data = getData();
+  return data.users.some((user) => user.email === email);
 };
 
 export const getSession = () => {
@@ -23,4 +28,9 @@ export const saveSession = (user) => {
 
 export const clearSession = () => {
   localStorage.removeItem(KEYS.session);
+};
+
+export const getReviews = () => {
+  const db = getData();
+  return db && db.reviews ? db.reviews : [];
 };
