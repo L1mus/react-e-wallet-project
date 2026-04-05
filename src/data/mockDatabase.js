@@ -93,6 +93,24 @@ const mockDatabase = {
         "I use this app since 2 years ago and this is the best app that I've ever use in my entire life",
       profilePicture: "https://i.pravatar.cc/150?u=sherina",
     },
+    {
+      id: "rv-2",
+      name: "Sherina Chaw",
+      text: "I use this app since 2 years ago and this is the best app that I've ever use.",
+      img: "https://i.pravatar.cc/150?u=sherina",
+    },
+    {
+      id: "rv-3",
+      name: "Jessica Mera",
+      text: "Since I'm using this app, I'm not going to move to another similar app.",
+      img: "https://i.pravatar.cc/150?u=jessica",
+    },
+    {
+      id: "rv-4",
+      name: "Robert Fox",
+      text: "The transaction speed is blazing fast. Highly recommended for business!",
+      img: "https://i.pravatar.cc/150?u=robert",
+    },
   ],
 };
 
