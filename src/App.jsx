@@ -1,8 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { LandingPage } from "./pages/LandingPage";
+import { Login } from "./pages/auth/Login";
+import { Register } from "./pages/auth/Register";
+import { ForgotPassword } from "./pages/auth/ForgotPassword";
+import { EnterPin } from "./pages/auth/EnterPin";
+import { CreatePin } from "./pages/auth/CreatePin";
+
 function App() {
   return (
-    <>
-      <h1>Setup</h1>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/enter-pin" element={<EnterPin />} />
+        <Route path="/create-pin" element={<CreatePin />} />
+      </Routes>
+    </Router>
   );
 }
 
