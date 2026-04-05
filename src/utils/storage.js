@@ -4,12 +4,12 @@ const KEYS = {
 };
 
 export const getData = () => {
-  const users = localStorage.getItem(KEYS.users);
-  return users ? JSON.parse(users) : [];
+  const data = localStorage.getItem(KEYS.database);
+  return data ? JSON.parse(data) : null;
 };
 
 export const saveData = (data) => {
-  localStorage.setItem(KEYS.users, JSON.stringify(data));
+  localStorage.setItem(KEYS.database, JSON.stringify(data));
 };
 
 export const getSession = () => {
