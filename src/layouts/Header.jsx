@@ -2,6 +2,18 @@ import { Link } from "react-router-dom";
 import { Search, ShoppingCart, ChevronDown } from "lucide-react";
 import { Button } from "../components/ui/Button";
 
+/**
+ * user
+ *  @typedef {Object} user
+ *  @param {String} user.name
+ */
+
+/**
+ * Header Component
+ * @param {String} props.variant
+ * @returns
+ */
+
 export const Header = ({ variant = "landing", user }) => {
   const profileName = user?.name || "Ghaluh Wizard";
   const profilePic =

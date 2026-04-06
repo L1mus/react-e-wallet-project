@@ -1,5 +1,15 @@
 import { cn } from "../../utils/cn";
 
+/**
+ * PhoneInput Components
+ * @typedef {object} ReviewCardProps
+ * @param {String} props.avatar
+ * @param {String} props.name
+ * @param {Number} props.rating
+ * @param {String} props.text
+ * @returns {JSX.element}
+ */
+
 export const PhoneInput = ({
   label,
   placeholder = "812 3456 7890",

@@ -2,6 +2,17 @@ import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { cn } from "../../utils/cn";
 
+/**
+ * Input Component
+ * @param {String} props.label
+ * @param {String} props.type
+ * @param {Number} props.placeholder
+ * @param {String} props.icon
+ * @param {String} props.error
+ * @param {String} props.className
+ * @param {object} props.props
+ * @returns {JSX.element}
+ */
 export const Input = ({
   label,
   type = "text",

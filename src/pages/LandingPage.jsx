@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Header } from "../layouts/Header";
 import { Footer } from "../layouts/Footer";
 import { Button } from "../components/ui/Button";
@@ -5,7 +6,6 @@ import { AboutCard } from "../components/ui/AboutCard";
 import { ReviewCard } from "../components/ui/ReviewCard";
 // import logoWave from "../assets/images/bg-landingpage.png";
 import logoMobile from "../assets/images/Mobile - Dashboard V2.png";
-import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 // import { getReviews } from "../utils/storage";
 // import { initializeDB } from "../data/mockDatabase";

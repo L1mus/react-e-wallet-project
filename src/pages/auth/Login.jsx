@@ -22,7 +22,7 @@ export const Login = () => {
 
   const onSubmit = (data) => {
     setAuthError("");
-    const db = getData() || { users: [] };
+    const db = getData();
     const foundUser = db.users?.find(
       (u) => u.email === data.email && u.password === data.password,
     );

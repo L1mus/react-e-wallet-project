@@ -1,3 +1,12 @@
+/**
+ * AuthLayout Component
+ * @param {String} props.children
+ * @param {String} props.title
+ * @param {String} props.subtitle
+ * @param {String} props.imagePath
+ * @returns {JSX.element}
+ */
+
 export const AuthLayout = ({ children, title, subtitle, imagePath }) => {
   return (
     <div className="relative h-screen w-full bg-primary font-sans overflow-hidden flex">

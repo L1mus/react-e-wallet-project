@@ -1,6 +1,14 @@
 import { useState, useRef } from "react";
 import { cn } from "../../utils/cn";
 
+/**
+ * PinInput Components
+ * @param {String} props.avatar
+ * @param {String} props.name
+ * @param {Number} props.rating
+ * @param {String} props.text
+ * @returns {JSX.element}
+ */
 export const PinInput = ({ length = 6, onChange, error, className }) => {
   const [pin, setPin] = useState(new Array(length).fill(""));
   const inputRefs = useRef([]);
