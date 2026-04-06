@@ -1,5 +1,16 @@
 import { cn } from "../../utils/cn";
 
+/**
+ * Button
+ * @typedef {object} ButtonProps
+ * @param {String} props.name
+ * @param {String} props.variant
+ * @param {String} props.size
+ * @param {Boolean} props.IsFullWidht
+ * @param {Boolean} props.isLoading
+ * @param {String} props.className
+ * @returns  {JSX.Element}
+ */
 export const Button = ({
   children,
   variant = "primary",

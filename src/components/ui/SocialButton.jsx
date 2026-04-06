@@ -1,5 +1,15 @@
 import { cn } from "../../utils/cn";
 
+/**
+ * SocialButton
+ * @typedef {object} SocialButton
+ * @param {String} props.avatar
+ * @param {String} props.name
+ * @param {Number} props.rating
+ * @param {String} props.text
+ * @returns {JSX.element}
+ */
+
 export const SocialButton = ({
   icon,
   text,

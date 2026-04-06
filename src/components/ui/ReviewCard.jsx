@@ -1,3 +1,13 @@
+/**
+ * ReviewCard
+ * @typedef {object} ReviewCardProps
+ * @param {String} props.avatar
+ * @param {String} props.name
+ * @param {Number} props.rating
+ * @param {String} props.text
+ * @returns {JSX.element}
+ */
+
 export const ReviewCard = ({ avatar, name, rating = 5, text }) => {
   return (
     <div className="w-full max-w-92 min-h-100 bg-[#E8E8E84D] rounded-xl flex flex-col items-center text-center shadow-sm border border-black/5 shrink-0 lg:shrink">
