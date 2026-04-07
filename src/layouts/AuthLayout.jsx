@@ -1,3 +1,5 @@
+import iconMoneyWallet from "../assets/icons/Money-Wallet.svg";
+
 /**
  * AuthLayout Component
  * @param {String} props.children
@@ -9,17 +11,17 @@
 
 export const AuthLayout = ({ children, title, subtitle, imagePath }) => {
   return (
-    <div className="relative h-screen w-full bg-primary font-sans overflow-hidden flex">
-      <div className="relative z-10 w-full md:w-1/2 h-full bg-white md:rounded-r-[40px] shadow-[10px_0_30px_rgba(0,0,0,0.15)] flex flex-col justify-center items-center px-8 lg:px-12 overflow-hidden">
+    <div className="relative w-full bg-primary-light overflow-auto flex">
+      <div className="relative z-10 w-full md:w-1/2 h-full bg-white md:rounded-r-[40px] shadow-[10px_0_30px_rgba(0,0,0,0.15)] flex flex-col justify-center items-center px-8 py-31.5 lg:px-12">
         <div className="w-full max-w-140.5">
           <div className="mb-5 md:mt-0">
             <div className="flex items-center gap-2 mb-4 lg:mb-5">
               <img
-                src="/assets/icons/Money Wallet.svg"
+                src={iconMoneyWallet}
                 alt="Logo"
                 className="w-8 h-8 object-contain"
               />
-              <h1 className="text-primary font-bold text-xl tracking-wide">
+              <h1 className="text-primary font-medium text-xl tracking-wide">
                 E-Wallet
               </h1>
             </div>
@@ -39,7 +41,7 @@ export const AuthLayout = ({ children, title, subtitle, imagePath }) => {
       <div className="hidden md:flex absolute top-0 right-0 w-1/2 h-full items-center justify-center pointer-events-none bg-primary overflow-hidden">
         <div className="relative z-20 flex items-center justify-center w-full h-full">
           <div
-            className="absolute w-125 h-125 rounded-full z-0 translate-y-10"
+            className="absolute w-225 h-full rounded z-0"
             style={{
               background: "radial-gradient(circle, #7096FF 0%, #3868FD 87%)",
               opacity: 0.8,
