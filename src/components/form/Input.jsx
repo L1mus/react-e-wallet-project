@@ -29,7 +29,9 @@ export const Input = ({
   return (
     <div className="flex flex-col gap-2 w-full">
       {label && (
-        <label className="text-[16px] font-normal text-black">{label}</label>
+        <label htmlFor={label} className="text-base font-normal text-black">
+          {label}
+        </label>
       )}
 
       <div className="relative flex items-center w-full">
@@ -41,9 +43,10 @@ export const Input = ({
 
         <input
           type={currentType}
+          id={label}
           placeholder={placeholder}
           className={cn(
-            "w-full h-11 bg-white border rounded-lg text-black text-sm transition-all duration-200 placeholder:text-gray-400",
+            "w-full h-11 bg-white border rounded-lg text-black text-sm transition-all duration-200 placeholder:text-grey",
             "outline-none",
             icon ? "pl-12" : "pl-4",
             isPassword ? "pr-12" : "pr-4",
