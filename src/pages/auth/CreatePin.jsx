@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useLocation, useNavigate, Navigate } from "react-router-dom";
+import { useLocation, useNavigate, Navigate } from "react-router";
 import { AuthLayout } from "../../layouts/AuthLayout";
 import { PinInput } from "../../components/form/PinInput";
 import { Button } from "../../components/ui/Button";
 import { getData, saveData } from "../../utils/storage";
+import imgBill from "../../assets/images/online-payment-security-concept-3d-phone-bill.png";
 
 export const CreatePin = () => {
   const navigate = useNavigate();
@@ -32,10 +33,10 @@ export const CreatePin = () => {
       return;
     }
 
-    const db = getData() || { users: [], reviews: [] };
+    const db = getData();
     const newUser = {
       ...userData,
-      id: `u-${Date.now()}`,
+      id: Date.now(),
       pin: confirmPin,
       balance: 0,
       isVerified: true,
@@ -56,7 +57,7 @@ export const CreatePin = () => {
           ? "Create a 6-digit PIN to secure your E-Wallet transactions."
           : "Please type your 6-digit PIN again to confirm."
       }
-      imagePath="/assets/images/online-payment-security-concept-3d-phone-bill.png"
+      imagePath={imgBill}
     >
       <div className="w-full flex flex-col gap-8 mt-2">
         <PinInput
