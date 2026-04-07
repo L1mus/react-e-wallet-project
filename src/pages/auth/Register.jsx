@@ -1,12 +1,38 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router";
 import { AuthLayout } from "../../layouts/AuthLayout";
 import { Input } from "../../components/form/Input";
 import { PhoneInput } from "../../components/form/PhoneInput";
 import { Button } from "../../components/ui/Button";
 import { SocialButton } from "../../components/ui/SocialButton";
 import { isEmailExists, getSession } from "../../utils/storage";
+import imgWallet from "../../assets/images/wallet.png";
+import iconPassword from "../../assets/icons/Password.svg";
+import iconMail from "../../assets/icons/mail.svg";
+import iconUser from "../../assets/icons/2 User.svg";
+import iconFacebook from "../../assets/icons/bx_bxl-facebook-circle.svg";
+import iconGoogle from "../../assets/icons/flat-color-icons_google.svg";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schemaValidasiRegister = z.object({
+  name: z.string().trim().min(1, { message: "Fullname is required" }),
+  email: z
+    .string({ message: "Email must be String" })
+    .min(1, { message: "Email is required" })
+    .regex(/\S+@\S+\.\S+/, { message: "Invalid Email" })
+    .email(),
+  phone: z
+    .string()
+    .min(1, { message: " Phone is required" })
+    .regex(/^[0-9]*$/g, { message: "Input must be character Number" })
+    .min(10, { message: " Minimum 10 characters" }),
+  password: z
+    .string()
+    .min(1, { message: " Password is required" })
+    .min(8, { message: "Password minimum 8 characters" }),
+});
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -15,7 +41,7 @@ export const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(schemaValidasiRegister) });
 
   useEffect(() => {
     if (getSession()) navigate("/");
@@ -36,17 +62,11 @@ export const Register = () => {
     <AuthLayout
       title="Start Accessing Banking Needs With All Devices and All Platforms With 30.000+ Users"
       subtitle="Transfering money is easier than ever, you can access Zwallet wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!"
-      imagePath="/assets/images/wallet.png"
+      imagePath={imgWallet}
     >
       <div className="flex flex-col gap-3 mb-4">
-        <SocialButton
-          icon="/assets/icons/flat-color-icons_google.svg"
-          text="Sign In With Google"
-        />
-        <SocialButton
-          icon="/assets/icons/bx_bxl-facebook-circle.svg"
-          text="Sign In With Facebook"
-        />
+        <SocialButton icon={iconGoogle} text="Sign In With Google" />
+        <SocialButton icon={iconFacebook} text="Sign In With Facebook" />
       </div>
 
       <div className="flex items-center mb-4">
@@ -61,10 +81,10 @@ export const Register = () => {
         noValidate
       >
         <Input
+          {...register("name", { required: true })}
           label="Full Name"
           placeholder="Enter Your Name"
-          icon="/assets/icons/2 User.svg"
-          {...register("name", { required: "Full name is required." })}
+          icon={iconUser}
           error={errors.name?.message}
         />
 
@@ -72,13 +92,9 @@ export const Register = () => {
           label="Email"
           type="email"
           placeholder="Enter Your Email"
-          icon="/assets/icons/mail.svg"
+          icon={iconMail}
           {...register("email", {
-            required: "Email is required.",
-            pattern: {
-              value: /\S+@\S+\.\S+/,
-              message: "Invalid email format",
-            },
+            required: true,
           })}
           error={errors.email?.message || errorMessage}
         />
@@ -87,8 +103,7 @@ export const Register = () => {
           label="Phone Number"
           placeholder="821xxxxxxxx"
           {...register("phone", {
-            required: "Mobile phone number is required",
-            minLength: { value: 10, message: "At least 10 digits" },
+            required: true,
           })}
           error={errors.phone?.message}
         />
@@ -97,10 +112,9 @@ export const Register = () => {
           label="Password"
           type="password"
           placeholder="Create Strong Password"
-          icon="/assets/icons/Password.svg"
+          icon={iconPassword}
           {...register("password", {
-            required: "Password is required",
-            minLength: { value: 8, message: "At least 8 characters" },
+            required: true,
           })}
           error={errors.password?.message}
         />

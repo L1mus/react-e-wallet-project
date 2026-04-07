@@ -1,24 +1,41 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import z from "zod";
 import { Input } from "../../components/form/Input";
 import { Button } from "../../components/ui/Button";
+import iconMoneyWallet from "../../assets/icons/Money-Wallet.svg";
+import iconMail from "../../assets/icons/mail.svg";
+
+const schemaEmailForForgotPassword = z.object({
+  email: z
+    .string()
+    .min(1, { message: "Email required" })
+    .email({ message: "Invalid Email" })
+    .trim(),
+});
+
+console.log(z.ZodError);
 
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [isSent, setIsSent] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(schemaEmailForForgotPassword) });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!email) return;
-
+  const onHandleSubmit = () => {
     setIsSent(true);
     alert("A password reset link has been sent to " + email);
   };
 
   return (
-    <div className="relative min-h-screen w-full bg-primary font-sans overflow-hidden flex items-center justify-center px-4 sm:px-8 py-10">
+    <div className="relative min-h-screen w-full bg-primary-light font-sans overflow-hidden flex items-center justify-center px-4 sm:px-8 py-10">
       <div
-        className="absolute w-150 h-150 sm:w-200 sm:h-200 rounded-full z-0 pointer-events-none"
+        className="absolute w-full h-full sm:w-200 sm:h-200 z-0 rounded-full pointer-events-none"
         style={{
           background: "radial-gradient(circle, #7096FF 0%, #3868FD 87%)",
           opacity: 0.7,
@@ -27,31 +44,34 @@ export const ForgotPassword = () => {
 
       <div className="relative z-10 w-full max-w-125 bg-white rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] px-8 py-12 sm:px-12 flex flex-col">
         <div className="flex items-center gap-2 mb-8">
-          <img
-            src="/assets/icons/Money Wallet.svg"
-            alt="Logo"
-            className="w-8 h-8"
-          />
-          <h1 className="text-primary font-bold text-xl">E-Wallet</h1>
+          <img src={iconMoneyWallet} alt="Logo" className="w-8 h-8" />
+          <h1 className="text-primary font-medium text-xl">E-Wallet</h1>
         </div>
 
         <h1 className="text-[30px] font-medium text-black mb-2 leading-snug">
           Fill Out Form Correctly 👋
         </h1>
-        <p className="text-[16px] font-normal text-grey leading-relaxed mb-8">
+        <p className="text-base font-normal text-grey leading-relaxed mb-8">
           We will send new password to your email
         </p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <form
+          onSubmit={handleSubmit(onHandleSubmit)}
+          className="flex flex-col gap-6"
+          noValidate
+        >
           <Input
+            {...register("email", { required: true })}
             label="Email"
             type="email"
             placeholder="Enter Your Email"
-            icon="/assets/icons/mail.svg"
+            icon={iconMail}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
+          {errors.email && (
+            <p className="text-danger">{errors.email.message}</p>
+          )}
 
           <Button type="submit" variant="primary" isFullWidth className="mt-2">
             {isSent ? "Resend Link" : "Submit"}
