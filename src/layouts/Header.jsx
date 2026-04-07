@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Search, ShoppingCart, ChevronDown } from "lucide-react";
 import { Button } from "../components/ui/Button";
+import iconMoneyWallet from "../assets/icons/Money-Wallet.svg";
 
 /**
  * user
@@ -25,7 +26,7 @@ export const Header = ({ variant = "landing", user }) => {
       <header className="w-full h-19 bg-white border-b border-gray-100 flex items-center justify-between px-6 lg:px-32.5 shadow-sm z-50 relative">
         <Link to="/" className="flex items-center gap-2">
           <img
-            src="/assets/icons/Money Wallet.svg"
+            src={iconMoneyWallet}
             alt="Logo"
             className="w-8 h-8 object-contain"
           />
@@ -63,7 +64,7 @@ export const Header = ({ variant = "landing", user }) => {
     <header className="w-full h-19 bg-primary flex items-center justify-between px-6 lg:px-32.5 z-50 relative">
       <Link to="/" className="flex items-center gap-2">
         <img
-          src="/assets/icons/Money Wallet.svg"
+          src={iconMoneyWallet}
           alt="Logo"
           className="w-8 h-8 object-contain"
         />
