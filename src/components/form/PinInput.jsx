@@ -3,7 +3,7 @@ import { cn } from "../../utils/cn";
 
 /**
  * PinInput Components
- * @param {String} props.avatar
+ * @param {number} props.length
  * @param {String} props.name
  * @param {Number} props.rating
  * @param {String} props.text
