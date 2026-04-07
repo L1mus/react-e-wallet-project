@@ -1,3 +1,4 @@
+import { Star } from "lucide-react";
 /**
  * ReviewCard
  * @typedef {object} ReviewCardProps
@@ -23,12 +24,7 @@ export const ReviewCard = ({ avatar, name, rating = 5, text }) => {
         <div className="flex items-center gap-2 mb-6">
           <div className="flex gap-1">
             {[...Array(5)].map((_, i) => (
-              <img
-                key={i}
-                src="/assets/icons/star.svg"
-                alt="star"
-                className="w-4 h-4"
-              />
+              <img key={i} src={Star} alt="star" className="w-4 h-4" />
             ))}
           </div>
           <span className="text-black font-bold text-base">
