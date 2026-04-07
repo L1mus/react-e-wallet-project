@@ -2,7 +2,6 @@ import { cn } from "../../utils/cn";
 
 /**
  * PhoneInput Components
- * @typedef {object} ReviewCardProps
  * @param {String} props.avatar
  * @param {String} props.name
  * @param {Number} props.rating
@@ -12,15 +11,23 @@ import { cn } from "../../utils/cn";
 
 export const PhoneInput = ({
   label,
-  placeholder = "812 3456 7890",
+  placeholder = "812 xxxx xxxx",
   error,
   className,
   ...props
 }) => {
+  const handleOnChange = (e) => {
+    const value = e.target.value;
+    if (!/^[0-9]*$/.test(value)) return "Must be Number";
+    e.target.value = value;
+    if (props.onChange) props.onChange(e);
+  };
   return (
     <div className="flex flex-col gap-2 w-full">
       {label && (
-        <label className="text-base font-normal text-black">{label}</label>
+        <label htmlFor={label} className="text-base font-normal text-black">
+          {label}
+        </label>
       )}
 
       <div
@@ -37,10 +44,12 @@ export const PhoneInput = ({
 
         <input
           type="tel"
+          id={label}
           inputMode="numeric"
+          onChange={handleOnChange}
           placeholder={placeholder}
           className={cn(
-            "flex-1 h-full px-4 text-black text-sm bg-transparent outline-none placeholder:text-gray-400",
+            "flex-1 h-full px-4 text-black text-sm bg-transparent outline-none placeholder:text-grey",
             className,
           )}
           {...props}
