@@ -5,7 +5,7 @@ import { AuthLayout } from "../../layouts/AuthLayout";
 import { Input } from "../../components/form/Input";
 import { PhoneInput } from "../../components/form/PhoneInput";
 import { Button } from "../../components/ui/Button";
-import { SocialButton } from "../../components/ui/SocialButton";
+import OauthButton from "../../components/ui/OauthButton";
 import { isEmailExists, getSession } from "../../utils/storage";
 import imgWallet from "../../assets/images/wallet.png";
 import iconPassword from "../../assets/icons/Password.svg";
@@ -65,8 +65,8 @@ export const Register = () => {
       imagePath={imgWallet}
     >
       <div className="flex flex-col gap-3 mb-4">
-        <SocialButton icon={iconGoogle} text="Sign In With Google" />
-        <SocialButton icon={iconFacebook} text="Sign In With Facebook" />
+        <OauthButton icon={iconGoogle} text="Sign In With Google" />
+        <OauthButton icon={iconFacebook} text="Sign In With Facebook" />
       </div>
 
       <div className="flex items-center mb-4">

@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router";
 import { AuthLayout } from "../../layouts/AuthLayout";
 import { Input } from "../../components/form/Input";
 import { Button } from "../../components/ui/Button";
-import { SocialButton } from "../../components/ui/SocialButton";
+import OauthButton from "../../components/ui/OauthButton";
 import { getData, saveSession, getSession } from "../../utils/storage";
 import iconPassword from "../../assets/icons/Password.svg";
 import iconMail from "../../assets/icons/mail.svg";
@@ -47,8 +47,8 @@ export const Login = () => {
       imagePath={imgLogin}
     >
       <div className="flex flex-col gap-4 mb-6">
-        <SocialButton icon={iconGoogle} text="Sign In With Google" />
-        <SocialButton icon={iconFacebook} text="Sign In With Facebook" />
+        <OauthButton icon={iconGoogle} text="Sign In With Google" />
+        <OauthButton icon={iconFacebook} text="Sign In With Facebook" />
       </div>
 
       <div className="flex items-center mb-6">
