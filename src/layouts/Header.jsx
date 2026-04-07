@@ -23,27 +23,22 @@ export const Header = ({ variant = "landing", user }) => {
 
   if (variant === "dashboard") {
     return (
-      <header className="w-full h-19 bg-white border-b border-gray-100 flex items-center justify-between px-6 lg:px-32.5 shadow-sm z-50 relative">
+      <header className="w-full h-19 bg-white border-b border-gray-300  flex items-center justify-between px-6 lg:px-5.5 shadow-sm z-50 relative">
         <Link to="/" className="flex items-center gap-2">
           <img
             src={iconMoneyWallet}
             alt="Logo"
             className="w-8 h-8 object-contain"
           />
-          <h1 className="text-primary font-bold text-xl tracking-wide">
+          <h1 className="text-primary font-medium text-xl tracking-wide">
             E-Wallet
           </h1>
         </Link>
 
         <div className="flex items-center gap-6 md:gap-8">
-          <div className="hidden sm:flex items-center gap-6 text-black">
-            <Search className="w-6 h-6 cursor-pointer hover:text-primary transition-colors" />
-            <ShoppingCart className="w-6 h-6 cursor-pointer hover:text-primary transition-colors" />
-          </div>
-
           <div className="flex items-center gap-4 cursor-pointer group">
             <div className="hidden md:block text-right">
-              <p className="text-base font-medium text-black group-hover:text-primary transition-colors">
+              <p className="text-base font-normal text-black group-hover:text-primary transition-colors">
                 {profileName}
               </p>
             </div>
@@ -61,7 +56,7 @@ export const Header = ({ variant = "landing", user }) => {
     );
   }
   return (
-    <header className="w-full h-19 bg-primary flex items-center justify-between px-6 lg:px-32.5 z-50 relative">
+    <header className="w-full h-19 bg-primary flex items-center justify-between px-6 lg:px-5.5 z-50 relative">
       <Link to="/" className="flex items-center gap-2">
         <img
           src={iconMoneyWallet}
