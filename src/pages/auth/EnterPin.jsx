@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { PinInput } from "../../components/form/PinInput";
 import { Button } from "../../components/ui/Button";
 import { getSession } from "../../utils/storage";
+import iconMoneyWallet from "../../assets/icons/Money-Wallet.svg";
 
 export const EnterPin = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ export const EnterPin = () => {
       <div className="relative z-10 w-full max-w-125 bg-white rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] px-8 py-12 sm:px-12 flex flex-col items-center">
         <div className="w-full flex justify-start items-center gap-2 mb-8">
           <img
-            src="/assets/icons/Money Wallet.svg"
+            src={iconMoneyWallet}
             alt="Logo"
             className="w-8 h-8 object-contain"
           />
