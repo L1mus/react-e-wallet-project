@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router";
 import { AuthLayout } from "../../layouts/AuthLayout";
 import { Input } from "../../components/form/Input";
 import { Button } from "../../components/ui/Button";
 import { SocialButton } from "../../components/ui/SocialButton";
 import { getData, saveSession, getSession } from "../../utils/storage";
+import iconPassword from "../../assets/icons/Password.svg";
+import iconMail from "../../assets/icons/mail.svg";
+import iconFacebook from "../../assets/icons/bx_bxl-facebook-circle.svg";
+import iconGoogle from "../../assets/icons/flat-color-icons_google.svg";
+import imgLogin from "../../assets/images/wallet.png";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -39,17 +44,11 @@ export const Login = () => {
     <AuthLayout
       title="Hello Welcome Back 👋"
       subtitle="Fill out the form correctly or you can login with several option."
-      imagePath="/assets/images/online-payment-security-concept-3d-phone-bill.png"
+      imagePath={imgLogin}
     >
       <div className="flex flex-col gap-4 mb-6">
-        <SocialButton
-          icon="/assets/icons/flat-color-icons_google.svg"
-          text="Sign In With Google"
-        />
-        <SocialButton
-          icon="/assets/icons/bx_bxl-facebook-circle.svg"
-          text="Sign In With Facebook"
-        />
+        <SocialButton icon={iconGoogle} text="Sign In With Google" />
+        <SocialButton icon={iconFacebook} text="Sign In With Facebook" />
       </div>
 
       <div className="flex items-center mb-6">
@@ -63,7 +62,7 @@ export const Login = () => {
           label="Email"
           type="email"
           placeholder="Enter Your Email"
-          icon="/assets/icons/mail.svg"
+          icon={iconMail}
           {...register("email", { required: "Email is required" })}
           error={errors.email?.message}
         />
@@ -73,7 +72,7 @@ export const Login = () => {
             label="Password"
             type="password"
             placeholder="Enter Your Password"
-            icon="/assets/icons/Password.svg"
+            icon={iconPassword}
             {...register("password", { required: "Password is required" })}
             error={errors.password?.message}
           />
