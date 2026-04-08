@@ -16,7 +16,7 @@ export const Footer = () => {
             <img
               src={iconMoneyWallet}
               alt="Logo E-Wallet"
-              className="w-8 h-8 object-contain brightness-0 invert"
+              className="w-8 h-8 object-contain"
             />
             <h1 className="text-white font-medium text-2xl tracking-wide">
               E-Wallet
