@@ -4,7 +4,7 @@ import { AuthLayout } from "../../layouts/AuthLayout";
 import { PinInput } from "../../components/form/PinInput";
 import { Button } from "../../components/ui/Button";
 import { getData, saveData } from "../../utils/storage";
-import imgBill from "../../assets/images/online-payment-security-concept-3d-phone-bill.png";
+import imgBill from "../../assets/images/wallet.png";
 
 export const CreatePin = () => {
   const navigate = useNavigate();

@@ -4,11 +4,23 @@ import { Footer } from "../layouts/Footer";
 import { Button } from "../components/ui/Button";
 import { AboutCard } from "../components/ui/AboutCard";
 import { ReviewCard } from "../components/ui/ReviewCard";
-// import logoWave from "../assets/images/bg-landingpage.png";
+import logoHero from "../assets/images/online-payment-security-concept-3d-phone-bill.png";
+import logoPlayStore from "../assets/icons/appstore.svg";
+import logoGplay from "../assets/icons/gplay.svg";
+import logoAirbnb from "../assets/icons/logo-airbnb.svg";
+import logodell from "../assets/icons/logo-dell.svg";
+import logoDropbox from "../assets/icons/logo-dropbox.svg";
+import logoHnm from "../assets/icons/logo-hnm.svg";
+import logoMicrosoft from "../assets/icons/logo-microsoft.svg";
+import logoCanon from "../assets/icons/logo-canon.svg";
+import logoHeadphone from "../assets/icons/Headphones.svg";
+import logoShield from "../assets/icons/Shield Done.svg";
+import logoDownload from "../assets/icons/Upload.svg";
+import logoMoney from "../assets/icons/u_money-bill.svg";
+import logoUserCheck from "../assets/icons/u_user-check.svg";
 import logoMobile from "../assets/images/Mobile - Dashboard V2.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 // import { getReviews } from "../utils/storage";
-// import { initializeDB } from "../data/mockDatabase";
 
 export const LandingPage = () => {
   const reviews = [
@@ -68,15 +80,15 @@ export const LandingPage = () => {
           </Button>
 
           <div className="flex flex-col gap-4">
-            <p className="text-grey text-[14px]">Available on</p>
+            <p className="text-grey text-sm">Available on</p>
             <div className="flex items-center gap-5">
               <img
-                src="/assets/icons/playstore.svg"
+                src={logoGplay}
                 alt="Play Store"
                 className="h-7.5 object-contain cursor-pointer hover:opacity-80 transition-opacity"
               />
               <img
-                src="/assets/icons/appstore.svg"
+                src={logoPlayStore}
                 alt="App Store"
                 className="h-7.5 object-contain cursor-pointer hover:opacity-80 transition-opacity"
               />
@@ -86,41 +98,41 @@ export const LandingPage = () => {
 
         <div className="w-full lg:w-[45%] flex justify-end">
           <img
-            src="/assets/images/hero-illustration.png"
+            src={logoHero}
             alt="Hero App Illustration"
             className="w-full max-w-137.5 object-contain drop-shadow-2xl"
           />
         </div>
       </section>
 
-      <section className="w-full bg-[#F8F9FA] px-6 lg:px-30 h-auto lg:h-43 py-10 lg:py-0 flex flex-wrap justify-center lg:justify-between items-center gap-10">
+      <section className="w-full bg-white px-6 lg:px-30 h-auto lg:h-43 py-10 lg:py-0 flex flex-wrap justify-center lg:justify-between items-center gap-10">
         <img
-          src="/assets/images/microsoft.png"
+          src={logoMicrosoft}
           alt="Microsoft"
           className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
-          src="/assets/images/dropbox.png"
+          src={logoDropbox}
           alt="Dropbox"
           className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
-          src="/assets/images/hm.png"
+          src={logoHnm}
           alt="H&M"
           className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
-          src="/assets/images/airbnb.png"
+          src={logoAirbnb}
           alt="Airbnb"
           className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
-          src="/assets/images/canon.png"
+          src={logoCanon}
           alt="Canon"
           className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
-          src="/assets/images/dell.png"
+          src={logodell}
           alt="Dell"
           className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
@@ -133,7 +145,7 @@ export const LandingPage = () => {
               About The Aplication
             </h2>
 
-            <p className="text-grey text-lg leading-relaxed max-w-120">
+            <p className="text-grey text-lg max-w-120">
               We have some great features from the application and it's totally
               free to use by all users around the world.
             </p>
@@ -141,17 +153,17 @@ export const LandingPage = () => {
 
           <div className="w-full lg:w-[55%] flex flex-row flex-nowrap gap-5 overflow-visible justify-center lg:justify-end">
             <AboutCard
-              icon="/assets/icons/headphone.png"
+              icon={logoHeadphone}
               title="24/7 Support"
               description="We have 24/7 contact support so you can contact us whenever you want and we will respond it."
             />
             <AboutCard
-              icon="/assets/icons/shield.png"
+              icon={logoShield}
               title="Data Privacy"
               description="We make sure your data is safe in our database and we will encrypt any data you submitted to us."
             />
             <AboutCard
-              icon="/assets/icons/download.png"
+              icon={logoDownload}
               title="Easy Download"
               description="Zwallet is 100% totally free to use. It's now available on Google Play Store and App Store."
             />
@@ -186,17 +198,17 @@ export const LandingPage = () => {
                 {
                   title: "Small Fee",
                   desc: "We only charge 5% of every success transaction done in Zwallet app.",
-                  icon: "/assets/icons/ic-fee.svg",
+                  icon: `${logoMoney}`,
                 },
                 {
                   title: "Data Secured",
                   desc: "All your data is secured properly in our system and it's encrypted.",
-                  icon: "/assets/icons/ic-lock.svg",
+                  icon: `${logoShield}`,
                 },
                 {
                   title: "User Friendly",
                   desc: "Zwallet come up with modern and sleek design and not complicated.",
-                  icon: "/assets/icons/ic-user.svg",
+                  icon: `${logoUserCheck}`,
                 },
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-5">
@@ -208,8 +220,8 @@ export const LandingPage = () => {
                     />
                   </div>
                   <div className="flex flex-col pt-1">
-                    <h4 className="text-[20px] font-bold mb-1">{item.title}</h4>
-                    <p className="text-white/70 text-base leading-relaxed max-w-100">
+                    <h4 className="text-xl font-bold mb-1">{item.title}</h4>
+                    <p className="text-white text-base leading-relaxed max-w-100">
                       {item.desc}
                     </p>
                   </div>
@@ -217,14 +229,14 @@ export const LandingPage = () => {
               ))}
             </div>
 
-            <button className="bg-white text-prbg-primary px-12 h-14 rounded-xl font-bold text-base shadow-xl hover:bg-gray-100 transition-all active:scale-95">
+            <button className="bg-white text-primary px-12 h-14 rounded-xl font-bold text-base shadow-xl hover:bg-gray-100 transition-all active:scale-95">
               Get Started
             </button>
           </div>
         </div>
       </section>
 
-      <section className="w-full py-20 lg:py-32 bg-white overflow-hidden flex flex-col items-center">
+      <section className="w-full py-10 lg:py-22 bg-white overflow-hidden flex flex-col items-center">
         <div className="container mx-auto px-6 text-center mb-16">
           <h2 className="text-[32px] lg:text-[48px] font-medium text-black mb-4">
             Here From Our Customer
