@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import Star from "../../assets/icons/star.svg";
 /**
  * ReviewCard
  * @typedef {object} ReviewCardProps
@@ -32,7 +32,7 @@ export const ReviewCard = ({ avatar, name, rating = 5, text }) => {
           </span>
         </div>
 
-        <div className="text-3xl leading-none font-serif text-black mb-4">
+        <div className="text-3xl leading-none text-black mb-4 font-extrabold">
           “
         </div>
 
