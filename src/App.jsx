@@ -11,7 +11,7 @@ import { DashboardLayout } from "./layouts/DashboardLayout";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route index element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -23,12 +23,12 @@ function App() {
         <Route path="history" element={<HistoryPage />} />
         <Route
           path="topup"
-          element={<div className="text-2xl font-bold">Ini Halaman Top Up</div>}
+          element={<div></div>}
         />
         <Route
           path="profile"
           element={
-            <div className="text-2xl font-bold">Ini Halaman Profile</div>
+            <div></div></div>
           }
         /> */}
       </Route>

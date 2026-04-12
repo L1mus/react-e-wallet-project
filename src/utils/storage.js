@@ -5,7 +5,15 @@ const KEYS = {
 
 export const getData = () => {
   const data = localStorage.getItem(KEYS.database);
-  return data ? JSON.parse(data) : { users: [], reviews: [] };
+  return data
+    ? JSON.parse(data)
+    : {
+        users: [],
+        reviews: [],
+        contact: [],
+        transaction: [],
+        paymentMethods: [],
+      };
 };
 
 export const saveData = (data) => {

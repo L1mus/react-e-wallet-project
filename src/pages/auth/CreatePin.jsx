@@ -59,7 +59,7 @@ export const CreatePin = () => {
       }
       imagePath={imgBill}
     >
-      <div className="w-full flex flex-col gap-8 mt-2">
+      <div className="w-full h-full flex flex-col gap-8 mt-2">
         <PinInput
           key={step}
           length={6}

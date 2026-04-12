@@ -3,7 +3,7 @@ import { saveData, getData } from "../utils/storage";
 const mockDatabase = {
   users: [
     {
-      id: "u-1",
+      id: "1",
       name: "Ghaluh Wizard",
       email: "ghaluhwizz@gmail.com",
       phone: "6282116304337",
@@ -15,7 +15,7 @@ const mockDatabase = {
         "https://ui-avatars.com/api/?name=Ghaluh+Wizard&background=random",
     },
     {
-      id: "u-2",
+      id: "2",
       name: "Robert Fox",
       email: "robert.fox@example.com",
       phone: "2395550108",
@@ -26,7 +26,7 @@ const mockDatabase = {
       profilePicture: "https://i.pravatar.cc/150?u=u2",
     },
     {
-      id: "u-3",
+      id: "3",
       name: "Ali Mustadji",
       email: "limustadji@example.com",
       phone: "6285156534946",
@@ -40,7 +40,7 @@ const mockDatabase = {
 
   paymentMethods: [
     {
-      id: "pm-1",
+      id: "1",
       name: "Bank Rakyat Indonesia",
       type: "BANK",
       imageUrl: "/assets/images/bri.png",
@@ -48,7 +48,7 @@ const mockDatabase = {
       fee: 1000,
     },
     {
-      id: "pm-2",
+      id: "2",
       name: "Bank Central Asia",
       type: "BANK",
       imageUrl: "/assets/images/bca.png",
@@ -59,7 +59,7 @@ const mockDatabase = {
 
   transactions: [
     {
-      id: "tx-1",
+      id: "3",
       senderId: "u-2",
       receiverId: "u-1",
       amount: 50000,
@@ -76,7 +76,7 @@ const mockDatabase = {
 
   contacts: [
     {
-      id: "c-1",
+      id: "1",
       ownerId: "u-1",
       contactUserId: "u-2",
       isFavorite: true,
@@ -86,7 +86,7 @@ const mockDatabase = {
   ],
   reviews: [
     {
-      id: "rv-1",
+      id: "1",
       reviewerName: "Sherina Chaw",
       rating: 5,
       comment:
@@ -94,19 +94,19 @@ const mockDatabase = {
       profilePicture: "https://i.pravatar.cc/150?u=sherina",
     },
     {
-      id: "rv-2",
+      id: "2",
       name: "Sherina Chaw",
       text: "I use this app since 2 years ago and this is the best app that I've ever use.",
       img: "https://i.pravatar.cc/150?u=sherina",
     },
     {
-      id: "rv-3",
+      id: "3",
       name: "Jessica Mera",
       text: "Since I'm using this app, I'm not going to move to another similar app.",
       img: "https://i.pravatar.cc/150?u=jessica",
     },
     {
-      id: "rv-4",
+      id: "4",
       name: "Robert Fox",
       text: "The transaction speed is blazing fast. Highly recommended for business!",
       img: "https://i.pravatar.cc/150?u=robert",
@@ -115,7 +115,7 @@ const mockDatabase = {
 };
 
 export const initializeDB = () => {
-  if (!getData()) {
+  if (getData()) {
     saveData(mockDatabase);
     console.log("Mock Database Initialized!");
   }

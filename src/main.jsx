@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import "./globals.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
-import { initializeDB } from "./data/mockDatabase.js";
+// import { initializeDB } from "./data/mockDatabase.js";
 
-initializeDB();
+// initializeDB();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

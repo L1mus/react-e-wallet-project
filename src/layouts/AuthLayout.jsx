@@ -11,9 +11,9 @@ import iconMoneyWallet from "../assets/icons/Money-Wallet.svg";
 
 export const AuthLayout = ({ children, title, subtitle, imagePath }) => {
   return (
-    <div className="relative w-full bg-primary-light overflow-auto flex">
-      <div className="relative z-10 w-full md:w-1/2 h-full bg-white md:rounded-r-[40px] shadow-[10px_0_30px_rgba(0,0,0,0.15)] flex flex-col justify-center items-center px-8 py-31.5 lg:px-12">
-        <div className="w-full max-w-140.5">
+    <div className="relative min-h-full bg-primary-light flex">
+      <div className="relative z-10 w-full min-h-full md:w-1/2 bg-white md:rounded-r-[40px] shadow-[10px_0_30px_rgba(0,0,0,0.15)] flex flex-col justify-center items-center px-8 py-31.5 lg:px-12 md:py-41">
+        <div className="w-full">
           <div className="mb-5 md:mt-0">
             <div className="flex items-center gap-2 mb-4 lg:mb-5">
               <img

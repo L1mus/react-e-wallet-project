@@ -57,7 +57,11 @@ export const Login = () => {
         <div className="flex-1 h-px bg-[#E8E8E8]" />
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-5"
+        noValidate
+      >
         <Input
           label="Email"
           type="email"

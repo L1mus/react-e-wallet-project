@@ -139,19 +139,19 @@ export const LandingPage = () => {
       </section>
 
       <section className="w-full bg-white px-6 lg:px-30 py-24 flex flex-col items-center justify-center">
-        <div className="w-full max-w-310 flex flex-col lg:flex-row items-center gap-16 lg:gap-15">
+        <div className="w-full flex flex-col lg:flex-row items-center gap-16 lg:gap-15">
           <div className="w-full lg:max-w-137.5 lg:w-[45%] flex flex-col items-start text-left shrink-0">
             <h2 className="text-4xl lg:text-44xl font-medium text-black mb-5 leading-[1.2] w-full">
               About The Aplication
             </h2>
 
-            <p className="text-grey text-lg max-w-120">
+            <p className="text-grey text-lg">
               We have some great features from the application and it's totally
               free to use by all users around the world.
             </p>
           </div>
 
-          <div className="w-full lg:w-[55%] flex flex-row flex-nowrap gap-5 overflow-visible justify-center lg:justify-end">
+          <div className="w-full flex flex-col md:flex-row flex-nowrap gap-5 justify-center">
             <AboutCard
               icon={logoHeadphone}
               title="24/7 Support"
@@ -183,12 +183,12 @@ export const LandingPage = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-[60%] lg:max-w-200 flex flex-col items-start text-white">
+          <div className="w-full lg:w-full lg:max-w-200 flex flex-col items-start text-white">
             <h2 className="text-[32px] lg:text-[48px] font-bold leading-tight mb-6 lg:whitespace-nowrap">
               All the Great Zwallet Features.
             </h2>
 
-            <p className="text-white/80 text-base lg:text-lg leading-relaxed mb-12 lg:max-w-200">
+            <p className="text-white/80 text-base lg:text-lg leading-relaxed lg:max-w-200">
               We have some great features from the application and it's totally
               free to use by all users around the world.
             </p>
