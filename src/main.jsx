@@ -4,13 +4,17 @@ import "./globals.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 // import { initializeDB } from "./data/mockDatabase.js";
+import { store } from "./redux/store.js";
+import { Provider } from "react-redux";
 
 // initializeDB();
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
+  <Provider store={store}>
+    <StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StrictMode>
+  </Provider>,
 );
