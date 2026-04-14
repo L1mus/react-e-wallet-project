@@ -16,8 +16,6 @@ const schemaEmailForForgotPassword = z.object({
     .trim(),
 });
 
-console.log(z.ZodError);
-
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [isSent, setIsSent] = useState(false);
