@@ -10,21 +10,25 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/es/storage";
-import authReducer from "./slice/authSlice";
+import env from "../utils/environment";
+
+import loginReducer from "./slice/loginSlice";
+import registerReducer from "./slice/registerSlice";
 
 const persistConfig = {
   key: "ew-DB",
   storage,
-  whitelist: [],
+  whitelist: [loginReducer, registerReducer],
 };
 
 const persistedReducer = persistCombineReducers(persistConfig, {
-  authReducer,
+  loginReducer,
+  registerReducer,
 });
 
 const store = configureStore({
   reducer: persistedReducer,
-  devTools: "development",
+  devTools: env.environment === "development",
   middleware: (defaultMiddleware) => {
     return defaultMiddleware({
       serializableCheck: {
