@@ -4,11 +4,11 @@ const apiLogin = (user) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const data = getData();
-      const fountUser = data.user?.find((u) => {
-        u.email === user.email && u.password === user.password;
+      const foundUser = data.user?.find((u) => {
+        return u.email === user.email && u.password === user.password;
       });
-      if (fountUser) {
-        resolve(fountUser);
+      if (foundUser) {
+        resolve(foundUser);
       } else {
         reject("Email or Password is Wrong!!!");
       }
