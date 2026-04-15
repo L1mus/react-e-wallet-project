@@ -1,10 +1,10 @@
-import { getData } from "../utils/storage";
+import { getDataUserRegister } from "../utils/storage";
 
 const apiLogin = (user) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const data = getData();
-      const foundUser = data.user?.find((u) => {
+      const data = getDataUserRegister(user);
+      const foundUser = data.registerUser.find((u) => {
         return u.email === user.email && u.password === user.password;
       });
       if (foundUser) {
