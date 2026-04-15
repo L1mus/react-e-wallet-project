@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import apiRegister from "../../api/asyncRegister";
 
 const initialState = {
-  user: [],
-  dataPending: null,
+  registerUser: [],
   isLoading: false,
+  successMsg: null,
   error: {
     userRegister: null,
     userChangePassword: null,
@@ -53,7 +53,9 @@ const registerSlice = createSlice({
       fulfilled: (prevState, action) => {
         prevState.status.userRegister.isPending = false;
         prevState.status.userRegister.isFulfilled = true;
-        prevState.dataPending = action.payload;
+        prevState.isLoading = false;
+        prevState.registerUser.push(action.payload);
+        prevState.successMsg = `Register success , Welcome ${action.payload?.email}`;
       },
       rejected: (prevState, action) => {
         prevState.status.userRegister.isPending = false;
@@ -64,7 +66,7 @@ const registerSlice = createSlice({
   },
 });
 
-export const authActions = {
+export const registerActions = {
   ...registerSlice.actions,
   registerUser,
 };

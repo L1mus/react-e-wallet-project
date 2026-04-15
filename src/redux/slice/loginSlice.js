@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import apiLogin from "../../api/asyncLogin";
-import { clearSession, saveSession } from "../../utils/storage";
 
 const initialState = {
-  user: [],
+  loginUser: {},
   isLogin: false,
   isLoading: false,
   error: null,
+  successMsg: "",
   status: {
     userLogin: {
       isPending: false,
@@ -21,22 +21,24 @@ const loginUser = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const data = await apiLogin(payload);
-      saveSession(data);
       return data;
     } catch (error) {
-      rejectWithValue(error);
+      return rejectWithValue(error);
     }
   },
 );
-
-const logoutUser = createAsyncThunk("authLogin/logoutUser", () => {
-  return clearSession();
-});
 
 const loginSlice = createSlice({
   name: "authLogin",
   initialState,
   reducers: {
+    logoutUser: (prevState) => {
+      return {
+        ...prevState,
+        loginUser: null,
+        isLogin: false,
+      };
+    },
     clearError: (prevState) => {
       return {
         ...prevState,
@@ -45,34 +47,28 @@ const loginSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    return builder
-      .addAsyncThunk(loginUser, {
-        pending: (prevState) => {
-          prevState.status.userLogin.isPending = true;
-          prevState.status.userLogin.isFulfilled = false;
-          prevState.status.userLogin.isRejected = false;
-          prevState.isLoading = true;
-        },
-        fulfilled: (prevState, action) => {
-          prevState.status.userLogin.isPending = false;
-          prevState.status.userLogin.isFulfilled = true;
-          prevState.user = action.payload;
-          prevState.isLogin = true;
-          prevState.isLoading = false;
-        },
-        rejected: (prevState, action) => {
-          prevState.status.userLogin.isPending = false;
-          prevState.status.userLogin.isRejected = true;
-          prevState.error = action.payload;
-        },
-      })
-      .addAsyncThunk(logoutUser, {
-        fulfilled: (prevState) => {
-          prevState.status.userLogin.isPending = false;
-          prevState.status.userLogin.isFulfilled = false;
-          prevState.isLogin = false;
-        },
-      });
+    return builder.addAsyncThunk(loginUser, {
+      pending: (prevState) => {
+        prevState.status.userLogin.isPending = true;
+        prevState.status.userLogin.isFulfilled = false;
+        prevState.status.userLogin.isRejected = false;
+        prevState.isLoading = true;
+      },
+      fulfilled: (prevState, action) => {
+        prevState.status.userLogin.isPending = false;
+        prevState.status.userLogin.isFulfilled = true;
+        prevState.userLogin = action.payload;
+        prevState.isLogin = true;
+        prevState.isLoading = false;
+        prevState.successMsg = "Login Succes";
+      },
+      rejected: (prevState, action) => {
+        prevState.status.userLogin.isPending = false;
+        prevState.status.userLogin.isRejected = true;
+        prevState.error = action.payload;
+        prevState.successMsg = null;
+      },
+    });
   },
 });
 
