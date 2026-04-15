@@ -109,38 +109,38 @@ export const LandingPage = () => {
         <img
           src={logoMicrosoft}
           alt="Microsoft"
-          className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          className=" object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
           src={logoDropbox}
           alt="Dropbox"
-          className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          className=" object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
           src={logoHnm}
           alt="H&M"
-          className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          className="object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
           src={logoAirbnb}
           alt="Airbnb"
-          className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          className=" object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
           src={logoCanon}
           alt="Canon"
-          className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          className="object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
         <img
           src={logodell}
           alt="Dell"
-          className="h-8 lg:h-8.75 object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          className=" object-contain opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         />
       </section>
 
-      <section className="w-full bg-white px-6 lg:px-30 py-24 flex flex-col items-center justify-center">
-        <div className="w-full flex flex-col lg:flex-row items-center gap-16 lg:gap-15">
-          <div className="w-full lg:max-w-137.5 lg:w-[45%] flex flex-col items-start text-left shrink-0">
+      <section className="my-42 px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
+          <div>
             <h2 className="text-4xl lg:text-44xl font-medium text-black mb-5 leading-[1.2] w-full">
               About The Aplication
             </h2>
@@ -171,8 +171,8 @@ export const LandingPage = () => {
         </div>
       </section>
 
-      <section className="w-full bg-primary py-32 lg:py-40 overflow-hidden">
-        <div className="max-w-360 mx-auto px-6 lg:px-30 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-37.5">
+      <section className=" bg-primary py-32 lg:py-40">
+        <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-[40%] flex justify-center lg:justify-start">
             <div className="relative w-70 lg:w-87.5">
               <img

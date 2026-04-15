@@ -2,25 +2,25 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { PinInput } from "../../components/form/PinInput";
 import { Button } from "../../components/ui/Button";
-import { getSession } from "../../utils/storage";
 import iconMoneyWallet from "../../assets/icons/Money-Wallet.svg";
+import { useSelector } from "react-redux";
 
 export const EnterPin = () => {
   const navigate = useNavigate();
   const [pinValue, setPinValue] = useState("");
   const [error, setError] = useState("");
-  const [session] = useState(() => getSession());
+  const stateLogin = useSelector((state) => state.loginReducer);
 
   useEffect(() => {
-    if (!session) navigate("/login");
-  }, [navigate, session]);
+    if (stateLogin.isLogin) navigate("/login");
+  }, [navigate, stateLogin.isLogin]);
 
   const handleVerify = () => {
     if (pinValue.length < 6) {
       setError("Enter the complete 6 digit PIN");
       return;
     }
-    if (pinValue === session?.pin) {
+    if (pinValue === stateLogin.userLogin.pin) {
       alert("Authorization Successful! Transaction continued");
       navigate("/");
     } else {
@@ -28,7 +28,7 @@ export const EnterPin = () => {
     }
   };
 
-  if (!session) return null;
+  if (!stateLogin) return null;
 
   return (
     <div className="relative min-h-screen w-full bg-primary font-sans overflow-hidden flex items-center justify-center px-4 sm:px-8 py-10">

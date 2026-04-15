@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import { Search, ShoppingCart, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import iconMoneyWallet from "../assets/icons/Money-Wallet.svg";
-import { getSession, clearSession } from "../utils/storage";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loginActions } from "../redux/slice/loginSlice";
 
 /**
  * user
@@ -18,12 +18,14 @@ import { useState } from "react";
  */
 
 export const Header = ({ variant = "landing" }) => {
-  const [, setIsLogin] = useState(true);
-  const data = getSession();
-  const profileName = data?.name || "Ghaluh Wizard";
+  const stateLogin = useSelector((state) => state.loginReducer);
+  const dispatch = useDispatch();
+  const actionLogin = loginActions;
+  const data = stateLogin.userLogin;
+  const profileName = data?.email.split("@")[0] || "Ghaluh Wizard";
   const profilePic =
     data?.profilePicture ||
-    `https://ui-avatars.com/api/?name=Ghaluh+Wizard&background=random`;
+    `https://ui-avatars.com/api/?name=LI&background=random`;
 
   if (variant === "dashboard") {
     return (
@@ -71,7 +73,7 @@ export const Header = ({ variant = "landing" }) => {
           E-Wallet
         </h1>
       </Link>
-      {data !== null ? (
+      {stateLogin.isLogin ? (
         <div className="flex items-center gap-6 md:gap-8">
           <div className="flex items-center gap-4 cursor-pointer group">
             <div className="hidden md:block text-right">
@@ -83,8 +85,7 @@ export const Header = ({ variant = "landing" }) => {
               <button
                 className="cursor-pointer"
                 onClick={() => {
-                  clearSession();
-                  setIsLogin(false);
+                  dispatch(actionLogin.logoutUser());
                 }}
               >
                 <img
