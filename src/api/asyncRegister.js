@@ -10,7 +10,7 @@ const apiRegister = (data) => {
       } else {
         resolve(data);
       }
-    }, 1500);
+    }, 2500);
   });
 };
 
