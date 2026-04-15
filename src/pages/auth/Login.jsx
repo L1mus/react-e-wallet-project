@@ -114,6 +114,7 @@ export const Login = () => {
             )}
 
             <Button
+              isLoading={stateLogin.isLoading}
               type="submit"
               variant="primary"
               isFullWidth
