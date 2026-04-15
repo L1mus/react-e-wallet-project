@@ -35,7 +35,7 @@ const loginSlice = createSlice({
     logoutUser: (prevState) => {
       return {
         ...prevState,
-        loginUser: null,
+        loginUser: {},
         isLogin: false,
       };
     },
@@ -57,7 +57,7 @@ const loginSlice = createSlice({
       fulfilled: (prevState, action) => {
         prevState.status.userLogin.isPending = false;
         prevState.status.userLogin.isFulfilled = true;
-        prevState.userLogin = action.payload;
+        prevState.loginUser = action.payload;
         prevState.isLogin = true;
         prevState.isLoading = false;
         prevState.successMsg = "Login Succes";
