@@ -5,6 +5,7 @@ import { PinInput } from "../../components/form/PinInput";
 import { Button } from "../../components/ui/Button";
 import { getData, saveData } from "../../utils/storage";
 import imgBill from "../../assets/images/wallet.png";
+import { toast } from "react-toastify";
 
 export const CreatePin = () => {
   const navigate = useNavigate();
@@ -45,7 +46,9 @@ export const CreatePin = () => {
 
     db.users.push(newUser);
     saveData(db);
-    alert("Account successfully created! Please log in");
+    toast.success("Account successfully created! Please log in", {
+      autoClose: 1000,
+    });
     navigate("/login");
   };
 

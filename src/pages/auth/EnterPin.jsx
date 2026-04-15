@@ -4,6 +4,7 @@ import { PinInput } from "../../components/form/PinInput";
 import { Button } from "../../components/ui/Button";
 import iconMoneyWallet from "../../assets/icons/Money-Wallet.svg";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 export const EnterPin = () => {
   const navigate = useNavigate();
@@ -21,7 +22,9 @@ export const EnterPin = () => {
       return;
     }
     if (pinValue === stateLogin.userLogin.pin) {
-      alert("Authorization Successful! Transaction continued");
+      toast.success("Authorization Successful! Transaction continued", {
+        autoClose: 1000,
+      });
       navigate("/");
     } else {
       setError("The PIN you entered is incorrect");

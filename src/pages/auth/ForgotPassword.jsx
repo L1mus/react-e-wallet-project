@@ -7,6 +7,8 @@ import { Input } from "../../components/form/Input";
 import { Button } from "../../components/ui/Button";
 import iconMoneyWallet from "../../assets/icons/Money-Wallet.svg";
 import iconMail from "../../assets/icons/mail.svg";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const schemaEmailForForgotPassword = z.object({
   email: z
@@ -17,6 +19,7 @@ const schemaEmailForForgotPassword = z.object({
 });
 
 export const ForgotPassword = () => {
+  const stateLogin = useSelector((state) => state.loginReducer);
   const [email, setEmail] = useState("");
   const [isSent, setIsSent] = useState(false);
   const {
@@ -27,7 +30,11 @@ export const ForgotPassword = () => {
 
   const onHandleSubmit = () => {
     setIsSent(true);
-    alert("A password reset link has been sent to " + email);
+    if (stateLogin.successMsg) {
+      toast.success("A password reset link has been sent to", {
+        autoClose: 1000,
+      });
+    }
   };
 
   return (
